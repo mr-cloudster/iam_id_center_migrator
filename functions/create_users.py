@@ -9,13 +9,13 @@ def create_identity_center_groups(file_path):
 
     identitystore_client = session.client('identitystore')
     
-    with open('mappings/users_data.json', 'r') as f:
+    with open('../mappings/users_data.json', 'r') as f:
         users_data = json.load(f)
 
-    with open('mappings/user_to_group_mapping.json', 'r') as f:
+    with open('../mappings/user_to_group_mapping.json', 'r') as f:
         user_group_mappings = json.load(f)
 
-    with open('mappings/new_groups_data.json', 'r') as f:
+    with open('../mappings/new_groups_data.json', 'r') as f:
         group_name_id_mappings = json.load(f)
 
 
@@ -96,5 +96,5 @@ def create_identity_center_groups(file_path):
 
 #EXAMPLE USAGE:
 if __name__ == '__main__':
-    file_path = 'mappings/groups_data.json'
+    file_path = '../mappings/groups_data.json'
     create_identity_center_groups(file_path)

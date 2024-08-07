@@ -48,7 +48,7 @@ def create_identity_center_groups(file_path):
 
 
     try:
-        with open('mappings/new_groups_data.json', 'r') as f:
+        with open('../mappings/new_groups_data.json', 'r') as f:
             existing_data = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         existing_data = []
@@ -57,10 +57,10 @@ def create_identity_center_groups(file_path):
     existing_data.extend(new_groups_data)
 
     # Write the updated data to the file as a JSON array
-    with open('mappings/new_groups_data.json', 'w') as f:
+    with open('../mappings/new_groups_data.json', 'w') as f:
         json.dump(existing_data, f, indent=2)
 
 # EXAMPLE USAGE:
 if __name__ == '__main__':
-    file_path = 'mappings/groups_data.json'
+    file_path = '../mappings/groups_data.json'
     create_identity_center_groups(file_path)

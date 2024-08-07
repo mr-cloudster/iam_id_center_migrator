@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 # SETUP VARIABLES
 session = boto3.Session(profile_name='#SOURCE_AWS_PROFILE#') #Replace with AWS CLI Profile name
 identity_store_id = '#SOURCE_IDENTITY_STORE_ID#'  # Replace with target IAM Identity Center Identity Store ID
-identity_store_arn = '#SOURCE_IDENTITY_STORE_ARN#'  # Replace with your Identity Store ARN
+identity_store_arn = '#SOURCE_IDENTITY_STORE_ARN'  # Replace with your Identity Store ARN
 identitystore_client = session.client('identitystore')
 
 
@@ -139,15 +139,15 @@ users_serializable = convert_sets_to_lists(users)
 
 #JSON SERIALIZATION
 mapping_json_data = json.dumps(user_group_mapping_serializable, indent=2)
-with open('mappings/user_to_group_mapping.json', 'w') as f:
+with open('../mappings/user_to_group_mapping.json', 'w') as f:
     f.write(mapping_json_data)
 
 groups_json_data = json.dumps(groups_serializable, indent=2)
-with open('mappings/groups_data.json', 'w') as f:
+with open('../mappings/groups_data.json', 'w') as f:
     f.write(groups_json_data)
 
 users_json_data = json.dumps(users_serializable, indent=2)
-with open('mappings/users_data.json', 'w') as f:
+with open('../mappings/users_data.json', 'w') as f:
     f.write(users_json_data)
 
 
@@ -283,6 +283,6 @@ def backup_permission_sets_details(identity_store_arn, output_file):
 
 # EXAMPLE USAGE:
 if __name__ == '__main__':
-    output_file = 'mappings/permission_sets_data.json'
+    output_file = '../mappings/permission_sets_data.json'
 
     backup_permission_sets_details(identity_store_arn, output_file)

@@ -13,7 +13,7 @@ This project should be run in two waves.
 **Considerations:**
 > **-** Run this on an earlier phase of Control Tower delivery.
 >
-> **-** Check files within "src/mappings/examples/" to understand what is collected.
+> **-** Check files within "src/../mappings/examples/" to understand what is collected.
 >
 > **-** Keep in mind that this is a first version, improvements are most welcome.
 
